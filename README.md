@@ -16,3 +16,6 @@ of the underlying environment, and adapt itself accordingly.
 This paper proposes an adaptive multi-source monitoring
 architecture that can synthesize on-the-fly SLA monitoring
 rules following the evolution of the Cloud infrastructure.
+
+Video Demo: https://www.youtube.com/watch?v=KcpV3afKmg8
+
