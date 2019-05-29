@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="CHOREOS" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:project type="REMOTE" status="CLOSED" name="airline">/Users/jlesbegu/Documents/PROJETS/CHOREOS/airline-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="hotel">/Users/jlesbegu/Documents/PROJETS/CHOREOS/hotel-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="airlinegroundstaffmid">/Users/jlesbegu/Documents/PROJETS/CHOREOS/airlinegroundstaffmid-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="airport">/Users/jlesbegu/Documents/PROJETS/CHOREOS/airport-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="bsmAdmin">/Users/jlesbegu/Documents/PROJETS/CHOREOS/bsmAdmin-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="security">/Users/jlesbegu/Documents/PROJETS/CHOREOS/security-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="esbAdmin">/Users/jlesbegu/Documents/PROJETS/CHOREOS/esbAdmin-soapui-project.xml</con:project>
+  <con:project type="REMOTE" status="CLOSED" name="Weather">/Users/jlesbegu/Documents/PROJETS/CHOREOS/Weather-soapui-project.xml</con:project>
+</con:soapui-workspace>

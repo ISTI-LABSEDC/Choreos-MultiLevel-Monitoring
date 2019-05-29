@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="securitycompany" soapui-version="4.5.2" activeEnvironment="Default" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SecurityCompanyPortBinding" type="wsdl" bindingName="{http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/}SecurityCompanyPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8187/securitycompany?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8187/securitycompany?wsdl"><con:part><con:url>http://localhost:8187/securitycompany?wsdl</con:url><con:content><![CDATA[<definitions name="SecurityCompanyService" targetNamespace="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://services.common.scn2.wp6.thalesgroup.choreos.ow2.org/" schemaLocation="http://localhost:8187/securitycompany?xsd=SecurityCompany.1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/" schemaLocation="http://localhost:8187/securitycompany?xsd=SecurityCompany.2.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="setChoreographyContextResponse">
+    <part element="tns:setChoreographyContextResponse" name="parameters"></part>
+  </message>
+  <message name="setInvocationAddressResponse">
+    <part element="tns:setInvocationAddressResponse" name="parameters"></part>
+  </message>
+  <message name="bookResponse">
+    <part element="tns:bookResponse" name="parameters"></part>
+  </message>
+  <message name="getName">
+    <part element="tns:getName" name="parameters"></part>
+  </message>
+  <message name="getNameResponse">
+    <part element="tns:getNameResponse" name="parameters"></part>
+  </message>
+  <message name="getAmenities">
+    <part element="tns:getAmenities" name="parameters"></part>
+  </message>
+  <message name="getType">
+    <part element="tns:getType" name="parameters"></part>
+  </message>
+  <message name="getAmenitiesResponse">
+    <part element="tns:getAmenitiesResponse" name="parameters"></part>
+  </message>
+  <message name="book">
+    <part element="tns:book" name="parameters"></part>
+  </message>
+  <message name="getTypeResponse">
+    <part element="tns:getTypeResponse" name="parameters"></part>
+  </message>
+  <message name="setInvocationAddress">
+    <part element="tns:setInvocationAddress" name="parameters"></part>
+  </message>
+  <message name="setName">
+    <part element="tns:setName" name="parameters"></part>
+  </message>
+  <message name="ScenarioException">
+    <part element="tns:ScenarioException" name="fault"></part>
+  </message>
+  <message name="setAmenities">
+    <part element="tns:setAmenities" name="parameters"></part>
+  </message>
+  <message name="setTypeResponse">
+    <part element="tns:setTypeResponse" name="parameters"></part>
+  </message>
+  <message name="setType">
+    <part element="tns:setType" name="parameters"></part>
+  </message>
+  <message name="setChoreographyContext">
+    <part element="tns:setChoreographyContext" name="parameters"></part>
+  </message>
+  <message name="setAmenitiesResponse">
+    <part element="tns:setAmenitiesResponse" name="parameters"></part>
+  </message>
+  <message name="setNameResponse">
+    <part element="tns:setNameResponse" name="parameters"></part>
+  </message>
+  <portType name="SecurityCompany">
+    <operation name="book">
+      <input message="tns:book"></input>
+      <output message="tns:bookResponse"></output>
+      <fault message="tns:ScenarioException" name="ScenarioException"></fault>
+    </operation>
+    <operation name="getAmenities">
+      <input message="tns:getAmenities"></input>
+      <output message="tns:getAmenitiesResponse"></output>
+    </operation>
+    <operation name="setAmenities">
+      <input message="tns:setAmenities"></input>
+      <output message="tns:setAmenitiesResponse"></output>
+    </operation>
+    <operation name="getName">
+      <input message="tns:getName"></input>
+      <output message="tns:getNameResponse"></output>
+    </operation>
+    <operation name="setName">
+      <input message="tns:setName"></input>
+      <output message="tns:setNameResponse"></output>
+    </operation>
+    <operation name="getType">
+      <input message="tns:getType"></input>
+      <output message="tns:getTypeResponse"></output>
+    </operation>
+    <operation name="setType">
+      <input message="tns:setType"></input>
+      <output message="tns:setTypeResponse"></output>
+    </operation>
+    <operation name="setChoreographyContext">
+      <input message="tns:setChoreographyContext"></input>
+      <output message="tns:setChoreographyContextResponse"></output>
+    </operation>
+    <operation name="setInvocationAddress">
+      <input message="tns:setInvocationAddress"></input>
+      <output message="tns:setInvocationAddressResponse"></output>
+    </operation>
+  </portType>
+  <binding name="SecurityCompanyPortBinding" type="tns:SecurityCompany">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="book">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="ScenarioException">
+        <soap:fault name="ScenarioException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getAmenities">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="setAmenities">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getName">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="setName">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="setType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="setChoreographyContext">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="setInvocationAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SecurityCompanyService">
+    <port binding="tns:SecurityCompanyPortBinding" name="SecurityCompanyPort">
+      <soap:address location="http://localhost:8187/securitycompany"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8187/securitycompany?xsd=SecurityCompany.1.xsd</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.6 in JDK 6.-->
+<xs:schema targetNamespace="http://services.common.scn2.wp6.thalesgroup.choreos.ow2.org/" version="1.0" xmlns:tns="http://services.common.scn2.wp6.thalesgroup.choreos.ow2.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="amenity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amenityType" type="xs:string"/>
+      <xs:element name="available" type="xs:boolean"/>
+      <xs:element name="bookable" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bookingOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amenity" type="tns:amenity"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8187/securitycompany?xsd=SecurityCompany.2.xsd</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.6 in JDK 6.-->
+<xs:schema targetNamespace="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/" version="1.0" xmlns:ns1="http://services.common.scn2.wp6.thalesgroup.choreos.ow2.org/" xmlns:tns="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://services.common.scn2.wp6.thalesgroup.choreos.ow2.org/" schemaLocation="http://localhost:8187/securitycompany?xsd=SecurityCompany.1.xsd"/>
+  <xs:element name="ScenarioException" type="tns:ScenarioException"/>
+  <xs:element name="book" type="tns:book"/>
+  <xs:element name="bookResponse" type="tns:bookResponse"/>
+  <xs:element name="getAmenities" type="tns:getAmenities"/>
+  <xs:element name="getAmenitiesResponse" type="tns:getAmenitiesResponse"/>
+  <xs:element name="getName" type="tns:getName"/>
+  <xs:element name="getNameResponse" type="tns:getNameResponse"/>
+  <xs:element name="getType" type="tns:getType"/>
+  <xs:element name="getTypeResponse" type="tns:getTypeResponse"/>
+  <xs:element name="setAmenities" type="tns:setAmenities"/>
+  <xs:element name="setAmenitiesResponse" type="tns:setAmenitiesResponse"/>
+  <xs:element name="setChoreographyContext" type="tns:setChoreographyContext"/>
+  <xs:element name="setChoreographyContextResponse" type="tns:setChoreographyContextResponse"/>
+  <xs:element name="setInvocationAddress" type="tns:setInvocationAddress"/>
+  <xs:element name="setInvocationAddressResponse" type="tns:setInvocationAddressResponse"/>
+  <xs:element name="setName" type="tns:setName"/>
+  <xs:element name="setNameResponse" type="tns:setNameResponse"/>
+  <xs:element name="setType" type="tns:setType"/>
+  <xs:element name="setTypeResponse" type="tns:setTypeResponse"/>
+  <xs:complexType name="getName">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setTypeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setAmenities">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="ns1:amenity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setAmenitiesResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getType">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAmenities">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAmenitiesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="ns1:amenity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setInvocationAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setInvocationAddressResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNameResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setChoreographyContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:hashMap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hashMap">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractMap">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractMap">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setChoreographyContextResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="order" type="ns1:bookingOrder"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bookResponse">
+    <xs:sequence>
+      <xs:element name="confirmation" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScenarioException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8187/securitycompany</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="book" bindingOperationName="book" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:book>
+         <!--Optional:-->
+         <order>
+            <!--Optional:-->
+            <amenity>
+               <!--Optional:-->
+               <amenityType>?</amenityType>
+               <available>?</available>
+               <bookable>?</bookable>
+               <!--Optional:-->
+               <name>?</name>
+            </amenity>
+            <id>?</id>
+            <!--Optional:-->
+            <type>?</type>
+         </order>
+      </sec:book>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/bookRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getAmenities" bindingOperationName="getAmenities" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:getAmenities/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/getAmenitiesRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getName" bindingOperationName="getName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:getName/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/getNameRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getType" bindingOperationName="getType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:getType/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/getTypeRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setAmenities" bindingOperationName="setAmenities" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:setAmenities>
+         <!--Zero or more repetitions:-->
+         <arg0>
+            <!--Optional:-->
+            <amenityType>?</amenityType>
+            <available>?</available>
+            <bookable>?</bookable>
+            <!--Optional:-->
+            <name>?</name>
+         </arg0>
+      </sec:setAmenities>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/setAmenitiesRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setChoreographyContext" bindingOperationName="setChoreographyContext" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:setChoreographyContext>
+         <!--Optional:-->
+         <arg0/>
+      </sec:setChoreographyContext>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/setChoreographyContextRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setInvocationAddress" bindingOperationName="setInvocationAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:setInvocationAddress>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <!--Optional:-->
+         <arg1>?</arg1>
+      </sec:setInvocationAddress>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/setInvocationAddressRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setName" bindingOperationName="setName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:setName>
+         <!--Optional:-->
+         <arg0>?</arg0>
+      </sec:setName>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/setNameRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setType" bindingOperationName="setType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8187/securitycompany</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sec:setType>
+         <!--Optional:-->
+         <arg0>?</arg0>
+      </sec:setType>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://securitycompany.services.scn2.wp6.thalesgroup.choreos.ow2.org/SecurityCompany/setTypeRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

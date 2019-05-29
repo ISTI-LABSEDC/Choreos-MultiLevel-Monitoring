@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="bsmAdmin" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" activeEnvironment="Default" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BSMAdminSoapBinding" type="wsdl" bindingName="{http://com.petalslink.easierbsm/service/bsmadmin/1.0}BSMAdminSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://pc-sabetta2.isti.cnr.it:8180/services/bsmadminExternalEndpoint?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://pc-sabetta2.isti.cnr.it:8180/services/bsmadminExternalEndpoint?wsdl"><con:part><con:url>http://pc-sabetta2.isti.cnr.it:8180/services/bsmadminExternalEndpoint?wsdl</con:url><con:content><![CDATA[<wsdl11:definitions name="node0_bsmadmin_Description" targetNamespace="http://ow2.petals.org" xmlns:admin="http://com.petalslink.easyesb/admin/model/datatype/1.0" xmlns:bsoap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:cad="http://com.petalslink.common.alerting.definition/1.0" xmlns:cadsoap="http://com.petalslink.common.alerting.definition.protocol/soap-notification/1.0" xmlns:capnote="http://com.petalslink.common.alerting.protocol.note/1.0" xmlns:exch="http://com.petalslink.easyesb/exchange/1.0" xmlns:ns11="http://docs.oasis-open.org/wsdm/muws2-2.xsd" xmlns:ns12="http://docs.oasis-open.org/wsdm/muws1-2.xsd" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:qml="http://upmc.fr/ns/ws-qml" xmlns:rawreport="http://com.petalslink/esrawreport/1.0" xmlns:soa="http://com.petalslink.easyesb/soa/model/datatype/1.0" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsaddr="http://www.w3.org/2005/08/addressing" xmlns:wsagr="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wscap="urn:oasis:names:tc:emergency:cap:1.2" xmlns:wsdl11="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdm="http://docs.oasis-open.org/wsdm/mows-2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl11:import location="jar:file:/home/jlesbegueries/new-bsm-choreos-distribution-1.0-SNAPSHOT-CHOREOS/bin/ws-binding-bsmadmin-1.0-SNAPSHOT.jar!/wsdl/bsmadmin10.wsdl" namespace="http://com.petalslink.easierbsm/service/bsmadmin/1.0"/>
+  <wsdl11:service name="node0_bsmadmin">
+    <wsdl11:port binding="BSMAdminSoapBinding" name="bsmadminEndpoint_node0" xmlns="http://com.petalslink.easierbsm/service/bsmadmin/1.0">
+      <bsoap11:address location="http://localhost:8180/services/bsmadminExternalEndpoint"/>
+    </wsdl11:port>
+  </wsdl11:service>
+</wsdl11:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://pc-sabetta2.isti.cnr.it:8180/services/jar:file:/home/jlesbegueries/new-bsm-choreos-distribution-1.0-SNAPSHOT-CHOREOS/bin/ws-binding-bsmadmin-1.0-SNAPSHOT.jar!/wsdl/bsmadmin10.wsdl</con:url><con:content><![CDATA[<!--Copyright (c) 2011 EBM Websourcing. All rights reserved. This program 
+	and the accompanying materials are made available under the terms of the 
+	GNU Lesser Public License v2.1 which accompanies this distribution, and is 
+	available at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html Contributors: 
+	EBM Websourcing - initial API and implementation-->
+<wsdl:definitions name="Admin" targetNamespace="http://com.petalslink.easierbsm/service/bsmadmin/1.0" xmlns:data="http://com.petalslink.easierbsm/data/bsmadmin/1.0" xmlns:soa="http://com.petalslink.easyesb/soa/model/datatype/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com.petalslink.easierbsm/service/bsmadmin/1.0" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com.petalslink.easierbsm/data/bsmadmin/1.0" xmlns:tns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+      <xsd:import namespace="http://com.petalslink.easyesb/soa/model/datatype/1.0" schemaLocation="../schema/soa10/soa10.xsd"/>
+      <xsd:import namespace="http://schemas.ggf.org/graap/2007/03/ws-agreement" schemaLocation="../schema/wsagreement10/wsagreement10.xsd"/>
+      <xsd:element name="adminFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="stacktrace" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AgreementResponse">
+        <xsd:sequence>
+          <xsd:element name="agreementName" type="xsd:string"/>
+          <xsd:element name="id" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="loadAgreementFromUrlRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="url" type="xsd:anyURI"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="loadAgreementRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="agreement" type="wsag:AgreementType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="loadAgreementResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="data:AgreementResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AgreementList">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="agreement" type="wsag:AgreementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgreementListResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="agreementResponse" type="data:AgreementResponse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="loadAgreementsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="data:AgreementList"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="loadAgreementsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="data:AgreementListResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createMonitoringEndpoint">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bsmServiceName" type="xsd:QName"/>
+            <xsd:element name="bsmProviderEndpointName" type="xsd:string"/>
+            <xsd:element name="exposeInSoap" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createMonitoringEndpointResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bsmEndpointName" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllMonitoringEndpoints">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllMonitoringEndpointsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="endpoint" type="tns:MonitoringEndpointType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="MonitoringEndpointType">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:QName"/>
+          <xsd:element name="address" type="xsd:string"/>
+          <xsd:element name="operations" type="tns:OperationListType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationListType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="operationName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="activateBusinessMonitoring">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ActivateBusinessMonitoring" type="tns:ActivateBusinessMonitoringType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unActivateBusinessMonitoring">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="UnActivateBusinessMonitoring" type="tns:UnActivateBusinessMonitoringType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unActivateBusinessMonitoringResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="UnActivateBusinessMonitoringResponse" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="UnActivateBusinessMonitoringType">
+        <xsd:sequence>
+          <xsd:element name="serviceName" type="xsd:QName"/>
+          <xsd:element name="endpointName" type="xsd:string"/>
+          <xsd:choice>
+            <xsd:element name="AllOperations"/>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="operation" type="xsd:QName"/>
+            </xsd:sequence>
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ActivateBusinessMonitoringType">
+        <xsd:sequence>
+          <xsd:element name="serviceName" type="xsd:QName"/>
+          <xsd:element name="endpointName" type="xsd:string"/>
+          <xsd:choice>
+            <xsd:element name="AllOperations">
+              <xsd:complexType>
+                <xsd:attribute name="Frequency" type="xsd:integer"/>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="operation" type="xsd:QName"/>
+            </xsd:sequence>
+          </xsd:choice>
+          <xsd:element name="Frequency" type="xsd:integer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="activateBusinessMonitoringResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ActivateBunsinessMonitoringResponseModel" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="connectToEsb">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="connectToEsbResponse">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unconnectToEsb">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unconnectToEsbResponse">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNodeInformations">
+        <xsd:complexType></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNodeInformationsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="soa:node"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getConnectedEsbs">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getConnectedEsbsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="esbAddress" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="monitorEndpoints">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notificationAddress" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="endpoint" type="tns:MonitoringEndpointType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="monitorEndpointsResponse">
+        <xsd:complexType>
+          <xsd:sequence></xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="adminExceptionMsg">
+    <wsdl:part element="data:adminFault" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createMonitoringEndpointRequest">
+    <wsdl:part element="data:createMonitoringEndpoint" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createMonitoringEndpointResponse">
+    <wsdl:part element="data:createMonitoringEndpointResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAllMonitoringEndpointsRequest">
+    <wsdl:part element="data:getAllMonitoringEndpoints" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAllMonitoringEndpointsResponse">
+    <wsdl:part element="data:getAllMonitoringEndpointsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="activateBusinessMonitoringRequest">
+    <wsdl:part element="data:activateBusinessMonitoring" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="activateBusinessMonitoringResponse">
+    <wsdl:part element="data:activateBusinessMonitoringResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="unactivateBusinessMonitoringRequest">
+    <wsdl:part element="data:unActivateBusinessMonitoring" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="unactivateBusinessMonitoringResponse">
+    <wsdl:part element="data:unActivateBusinessMonitoringResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="connectToEsbRequest">
+    <wsdl:part element="data:connectToEsb" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="connectToEsbResponse">
+    <wsdl:part element="data:connectToEsbResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="unconnectToEsbRequest">
+    <wsdl:part element="data:unconnectToEsb" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="unconnectToEsbResponse">
+    <wsdl:part element="data:unconnectToEsbResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="loadAgreementFromUrlRequest">
+    <wsdl:part element="data:loadAgreementFromUrlRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="loadAgreementRequest">
+    <wsdl:part element="data:loadAgreementRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="loadAgreementResponse">
+    <wsdl:part element="data:loadAgreementResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="loadAgreementsRequest">
+    <wsdl:part element="data:loadAgreementsRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="loadAgreementsResponse">
+    <wsdl:part element="data:loadAgreementsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getNodeInformationsRequest">
+    <wsdl:part element="data:getNodeInformations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getNodeInformationsResponse">
+    <wsdl:part element="data:getNodeInformationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getConnectedEsbsRequest">
+    <wsdl:part element="data:getConnectedEsbs" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getConnectedEsbsResponse">
+    <wsdl:part element="data:getConnectedEsbsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="monitorEndpointsRequest">
+    <wsdl:part element="data:monitorEndpoints" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="monitorEndpointsResponse">
+    <wsdl:part element="data:monitorEndpointsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="BSMAdminItf">
+    <wsdl:operation name="loadAgreementFromUrl">
+      <wsdl:input message="tns:loadAgreementFromUrlRequest"/>
+      <wsdl:output message="tns:loadAgreementResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="loadAgreementFromDocument">
+      <wsdl:input message="tns:loadAgreementRequest"/>
+      <wsdl:output message="tns:loadAgreementResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMonitoringEndpoints">
+      <wsdl:input message="tns:getAllMonitoringEndpointsRequest"/>
+      <wsdl:output message="tns:getAllMonitoringEndpointsResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="activateBusinessMonitoring">
+      <wsdl:input message="tns:activateBusinessMonitoringRequest"/>
+      <wsdl:output message="tns:activateBusinessMonitoringResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="unActivateBusinessMonitoring">
+      <wsdl:input message="tns:unactivateBusinessMonitoringRequest"/>
+      <wsdl:output message="tns:unactivateBusinessMonitoringResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="connectToEsb">
+      <wsdl:input message="tns:connectToEsbRequest"/>
+      <wsdl:output message="tns:connectToEsbResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="unconnectToEsb">
+      <wsdl:input message="tns:unconnectToEsbRequest"/>
+      <wsdl:output message="tns:unconnectToEsbResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNodeInformations">
+      <wsdl:input message="tns:getNodeInformationsRequest"/>
+      <wsdl:output message="tns:getNodeInformationsResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getConnectedEsbs">
+      <wsdl:input message="tns:getConnectedEsbsRequest"/>
+      <wsdl:output message="tns:getConnectedEsbsResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="monitorEndpoints">
+      <wsdl:input message="tns:monitorEndpointsRequest"/>
+      <wsdl:output message="tns:monitorEndpointsResponse"/>
+      <wsdl:fault message="tns:adminExceptionMsg" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BSMAdminSoapBinding" type="tns:BSMAdminItf">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllMonitoringEndpoints">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getAllMonitoringEndpoints"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="activateBusinessMonitoring">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/activateBusinessMonitoring"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="unActivateBusinessMonitoring">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unActivateBusinessMonitoring"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="connectToEsb">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/connectToEsb"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="unconnectToEsb">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unconnectToEsb"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="loadAgreementFromUrl">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromUrl"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="loadAgreementFromDocument">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromDocument"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNodeInformations">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getNodeInformations"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConnectedEsbs">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getConnectedEsbs"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="monitorEndpoints">
+      <soap:operation soapAction="http://com.petalslink.easierbsm/service/bsmadmin/1.0/monitorEndpoints"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BSMAdminService">
+    <wsdl:port binding="tns:BSMAdminSoapBinding" name="BSMAdminEndpoint">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://pc-sabetta2.isti.cnr.it:8180/services/jar:file:/home/jlesbegueries/new-bsm-choreos-distribution-1.0-SNAPSHOT-CHOREOS/bin/ws-binding-bsmadmin-1.0-SNAPSHOT.jar!/schema/soa10/soa10.xsd</con:url><con:content><![CDATA[<!--Copyright (c) 2011 EBM Websourcing. All rights reserved. This program 
+	and the accompanying materials are made available under the terms of the 
+	GNU Lesser Public License v2.1 which accompanies this distribution, and is 
+	available at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html Contributors: 
+	EBM Websourcing - initial API and implementation-->
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://com.petalslink.easyesb/soa/model/datatype/1.0" xmlns:soa="http://com.petalslink.easyesb/soa/model/datatype/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="URIListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:anyURI"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="sourceNodeInformations" type="soa:BasicNodeInformationsType"/>
+  <xsd:element name="basicNodeInformations" type="soa:BasicNodeInformationsType"/>
+  <xsd:element name="neighbourNode" type="soa:BasicNodeInformationsType"/>
+  <xsd:complexType name="BasicNodeInformationsType">
+    <xsd:sequence>
+      <xsd:element name="nodeName" type="xsd:QName"/>
+      <xsd:element name="host" type="xsd:string"/>
+      <xsd:element name="port" type="xsd:string"/>
+      <xsd:element name="transporterList" type="soa:TransporterListType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EndpointInitialContextType">
+    <xsd:sequence>
+      <xsd:element name="numberOfThreads" type="xsd:int"/>
+      <xsd:element name="initializationInterceptors" type="soa:InitializationInterceptorListType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BehavioursListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="behaviour" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="EndpointType">
+    <xsd:sequence>
+      <xsd:element name="reference" type="xsd:anyURI"/>
+      <xsd:element name="node" type="xsd:QName"/>
+      <xsd:element name="type" type="xsd:string"/>
+      <xsd:element name="behavioursList" type="soa:BehavioursListType"/>
+      <xsd:element ref="soa:basicNodeInformations"/>
+      <xsd:element name="endpointInitialContext" type="soa:EndpointInitialContextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="localEndpointsGroupList" type="soa:EndpointsGroupListType"/>
+  <xsd:element name="remoteEndpointsGroupList" type="soa:EndpointsGroupListType"/>
+  <xsd:complexType name="EndpointsGroupListType">
+    <xsd:group maxOccurs="unbounded" ref="soa:EndpointGroup"/>
+  </xsd:complexType>
+  <xsd:element name="genericEndpoint" type="soa:GenericEndpointType"/>
+  <xsd:complexType name="GenericEndpointType">
+    <xsd:group maxOccurs="1" ref="soa:EndpointGroup"/>
+  </xsd:complexType>
+  <xsd:element name="clientEndpoint" type="soa:ClientEndpointType"/>
+  <xsd:element name="providerEndpoint" type="soa:ProviderEndpointType"/>
+  <xsd:element name="clientProxyEndpoint" type="soa:ClientProxyEndpointType"/>
+  <xsd:element name="providerProxyEndpoint" type="soa:ProviderProxyEndpointType"/>
+  <xsd:element name="technicalService" type="soa:TechnicalServiceType"/>
+  <xsd:element name="businessService" type="soa:BusinessServiceType"/>
+  <xsd:element name="component" type="soa:ComponentType"/>
+  <xsd:element name="node" type="soa:NodeType"/>
+  <xsd:group name="EndpointGroup">
+    <xsd:choice>
+      <xsd:element ref="soa:clientEndpoint"/>
+      <xsd:element ref="soa:providerEndpoint"/>
+      <xsd:element ref="soa:clientProxyEndpoint"/>
+      <xsd:element ref="soa:providerProxyEndpoint"/>
+      <xsd:element ref="soa:technicalService"/>
+      <xsd:element ref="soa:businessService"/>
+      <xsd:element ref="soa:component"/>
+      <xsd:element ref="soa:node"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="providerEndpointsGroupList" type="soa:ProviderEndpointsGroupListType"/>
+  <xsd:complexType name="ProviderEndpointsGroupListType">
+    <xsd:group maxOccurs="unbounded" ref="soa:ProviderEndpointGroup"/>
+  </xsd:complexType>
+  <xsd:group name="ProviderEndpointGroup">
+    <xsd:choice>
+      <xsd:element name="providerEndpoint" type="soa:ProviderEndpointType"/>
+      <xsd:element name="providerProxyEndpoint" type="soa:ProviderProxyEndpointType"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="clientEndpointsGroupList" type="soa:ClientEndpointsGroupListType"/>
+  <xsd:complexType name="ClientEndpointsGroupListType">
+    <xsd:group maxOccurs="unbounded" ref="soa:ClientEndpointGroup"/>
+  </xsd:complexType>
+  <xsd:group name="ClientEndpointGroup">
+    <xsd:choice>
+      <xsd:element name="clientEndpoint" type="soa:ClientEndpointType"/>
+      <xsd:element name="clientProxyEndpoint" type="soa:ClientProxyEndpointType"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="servicesGroupList" type="soa:ServicesGroupListType"/>
+  <xsd:complexType name="ServicesGroupListType">
+    <xsd:group maxOccurs="unbounded" ref="soa:ServiceGroup"/>
+  </xsd:complexType>
+  <xsd:group name="ServiceGroup">
+    <xsd:choice>
+      <xsd:element name="technicalService" type="soa:TechnicalServiceType"/>
+      <xsd:element name="businessService" type="soa:BusinessServiceType"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:complexType name="ClientEndpointType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:EndpointType">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ListenerInitialisationType">
+    <xsd:sequence>
+      <xsd:element name="className" type="xsd:string"/>
+      <xsd:element name="serverName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="exposableAddress" nillable="true" type="xsd:anyURI"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SenderInitialisationType">
+    <xsd:sequence>
+      <xsd:element name="className" type="xsd:string"/>
+      <xsd:element name="externalProviderAddress" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ClientProxyEndpointType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ClientEndpointType">
+        <xsd:sequence>
+          <xsd:element name="providerEndpointName" type="xsd:string"/>
+          <xsd:element name="providerServiceName" type="xsd:QName"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="listenerInitialisation" type="soa:ListenerInitialisationType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ProviderEndpointType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ClientEndpointType">
+        <xsd:sequence>
+          <xsd:element name="serviceName" type="xsd:QName"/>
+          <xsd:element name="wsdlDescription" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ProviderProxyEndpointType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ProviderEndpointType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="senderInitialisation" type="soa:SenderInitialisationType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ServiceType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ProviderEndpointType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="soa:providerEndpointsGroupList"/>
+          <xsd:element name="componentParentReference" type="xsd:anyURI"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TechnicalServiceType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ServiceType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessServiceType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ServiceType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ProviderEndpointType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="soa:servicesGroupList"></xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="NodeType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ComponentType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="registry" type="soa:RegistryEndpointType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="soa:clientEndpointsGroupList"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="component" type="soa:ComponentType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TransporterListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="transporter" type="soa:TransporterType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RegistryEndpointType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:ProviderEndpointType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="soa:neighbourNode"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="soa:localEndpointsGroupList"></xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="soa:remoteEndpointsGroupList"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="RegistryServiceType">
+    <xsd:complexContent>
+      <xsd:extension base="soa:TechnicalServiceType"></xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="TransporterType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SOAPTransporter"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="InitializationInterceptorListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="interceptorClassName" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://pc-sabetta2.isti.cnr.it:8180/services/jar:file:/home/jlesbegueries/new-bsm-choreos-distribution-1.0-SNAPSHOT-CHOREOS/bin/ws-binding-bsmadmin-1.0-SNAPSHOT.jar!/schema/wsagreement10/wsagreement10.xsd</con:url><con:content><![CDATA[<!--Copyright (c) 2011 EBM Websourcing.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Lesser Public License v2.1
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+  
+  Contributors:
+      EBM Websourcing - initial API and implementation-->
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsag="http://schemas.ggf.org/graap/2007/03/ws-agreement" xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="wsaddressing10.xsd"/>
+  <xs:element name="Template" type="wsag:AgreementTemplateType"/>
+  <xs:element name="AgreementOffer" type="wsag:AgreementType"/>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="AgreementId" type="xs:string"/>
+  <xs:element name="Context" type="wsag:AgreementContextType"/>
+  <xs:element name="Terms" type="wsag:TermTreeType"/>
+  <xs:element name="NoncriticalExtensions" type="wsag:NoncriticalExtensionType"/>
+  <xs:complexType name="TermTreeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="wsag:All"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementContextType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgreementInitiator" type="xs:anyType"/>
+      <xs:element minOccurs="0" name="AgreementResponder" type="xs:anyType"/>
+      <xs:element name="ServiceProvider" type="wsag:AgreementRoleType"/>
+      <xs:element minOccurs="0" name="ExpirationTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="TemplateId" type="xs:string"/>
+      <xs:element minOccurs="0" name="TemplateName" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other"/>
+  </xs:complexType>
+  <xs:element name="All" type="wsag:TermCompositorType"/>
+  <xs:complexType name="TermCompositorType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ExactlyOne" type="wsag:TermCompositorType"/>
+        <xs:element name="OneOrMore" type="wsag:TermCompositorType"/>
+        <xs:element ref="wsag:All"/>
+        <xs:element name="ServiceDescriptionTerm" type="wsag:ServiceDescriptionTermType"/>
+        <xs:element name="ServiceReference" type="wsag:ServiceReferenceType"/>
+        <xs:element name="ServiceProperties" type="wsag:ServicePropertiesType"/>
+        <xs:element name="GuaranteeTerm" type="wsag:GuaranteeTermType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementTemplateType">
+    <xs:complexContent>
+      <xs:extension base="wsag:AgreementType">
+        <xs:sequence>
+          <xs:element name="CreationConstraints" type="wsag:ConstraintSectionType"/>
+        </xs:sequence>
+        <xs:attribute name="TemplateId" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AgreementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="wsag:Name"/>
+      <xs:element ref="wsag:Context"/>
+      <xs:element ref="wsag:Terms"/>
+    </xs:sequence>
+    <xs:attribute name="AgreementId" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="AgreementInitiatorIdentifierType">
+    <xs:sequence>
+      <xs:element name="Reference" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementResponderIdentifierType">
+    <xs:sequence>
+      <xs:element name="Reference" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="TermType">
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="GuaranteeTermType">
+    <xs:complexContent>
+      <xs:extension base="wsag:TermType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ServiceScope" type="wsag:ServiceSelectorType"/>
+          <xs:element minOccurs="0" ref="wsag:QualifyingCondition"/>
+          <xs:element ref="wsag:ServiceLevelObjective"/>
+          <xs:element name="BusinessValueList" type="wsag:BusinessValueListType"/>
+        </xs:sequence>
+        <xs:attribute name="Obligated" type="wsag:ServiceRoleType"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceSelectorType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:attribute name="ServiceName" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="QualifyingCondition" type="xs:anyType"/>
+  <xs:element name="ServiceLevelObjective" type="wsag:ServiceLevelObjectiveType"/>
+  <xs:complexType name="BusinessValueListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Importance" type="xs:integer"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Penalty" type="wsag:CompensationType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Reward" type="wsag:CompensationType"/>
+      <xs:element minOccurs="0" name="Preference" type="wsag:PreferenceType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="CustomBusinessValue" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompensationType">
+    <xs:sequence>
+      <xs:element name="AssessmentInterval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice>
+              <xs:element name="TimeInterval" type="xs:duration"/>
+              <xs:element name="Count" type="xs:positiveInteger"/>
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ValueUnit" type="xs:string"/>
+      <xs:element name="ValueExpression" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PreferenceType">
+    <xs:sequence maxOccurs="unbounded" minOccurs="1">
+      <xs:element name="ServiceTermReference" type="xs:string"/>
+      <xs:element name="Utility" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ServiceTermType">
+    <xs:complexContent>
+      <xs:extension base="wsag:TermType">
+        <xs:attribute name="ServiceName" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceReferenceType">
+    <xs:complexContent>
+      <xs:extension base="wsag:ServiceTermType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="strict"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceDescriptionTermType">
+    <xs:complexContent>
+      <xs:extension base="wsag:ServiceTermType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="strict"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServicePropertiesType">
+    <xs:complexContent>
+      <xs:extension base="wsag:ServiceTermType">
+        <xs:sequence>
+          <xs:element name="VariableSet" type="wsag:VariableSetType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceNameSet">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ServiceName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" type="xs:string"/>
+  <xs:complexType name="VariableType">
+    <xs:sequence>
+      <xs:element ref="wsag:Location"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string"/>
+    <xs:attribute name="Metric" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="VariableSetType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Variable" type="wsag:VariableType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConstraintSectionType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Item" type="wsag:OfferItemType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="wsag:Constraint"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OfferItemType">
+    <xs:sequence>
+      <xs:element ref="wsag:Location"/>
+      <xs:element name="ItemConstraint">
+        <xs:complexType>
+          <xs:choice minOccurs="0">
+            <!--<xs:group ref="xs:simpleRestrictionModel"/>-->
+            <!--<xs:group ref="xs:typeDefParticle"/>-->
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="Constraint" type="xs:anyType"/>
+  <xs:simpleType name="AgreementRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AgreementInitiator"/>
+      <xs:enumeration value="AgreementResponder"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ServiceConsumer"/>
+      <xs:enumeration value="ServiceProvider"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NoncriticalExtensionType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServiceLevelObjectiveType">
+    <xs:choice>
+      <xs:element name="KPITarget" type="wsag:KPITargetType"/>
+      <xs:element name="CustomServiceLevel" type="xs:anyType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="KPITargetType">
+    <xs:sequence>
+      <xs:element name="KPIName" type="xs:string"/>
+      <xs:element name="CustomServiceLevel" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContinuingFaultType">
+    <!--<xs:complexContent>-->
+    <!--<xs:extension base="wsrf-bf:BaseFaultType"/>-->
+    <!--</xs:complexContent>-->
+  </xs:complexType>
+  <xs:element name="ContinuingFault" type="wsag:ContinuingFaultType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://pc-sabetta2.isti.cnr.it:8180/services/jar:file:/home/jlesbegueries/new-bsm-choreos-distribution-1.0-SNAPSHOT-CHOREOS/bin/ws-binding-bsmadmin-1.0-SNAPSHOT.jar!/schema/wsagreement10/wsaddressing10.xsd</con:url><con:content><![CDATA[<!--Copyright (c) 2011 EBM Websourcing.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Lesser Public License v2.1
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+  
+  Contributors:
+      EBM Websourcing - initial API and implementation-->
+<xs:schema attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" finalDefault="" targetNamespace="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.w3.org/2005/08/addressing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EndpointReference" type="tns:EndpointReferenceType"/>
+  <xs:complexType mixed="false" name="EndpointReferenceType">
+    <xs:sequence>
+      <xs:element name="Address" type="tns:AttributedURIType"/>
+      <xs:element minOccurs="0" name="ReferenceParameters" type="tns:ReferenceParametersType"/>
+      <xs:element minOccurs="0" ref="tns:Metadata"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:complexType mixed="false" name="ReferenceParametersType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Metadata" type="tns:MetadataType"/>
+  <xs:complexType mixed="false" name="MetadataType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="MessageID" type="tns:AttributedURIType"/>
+  <xs:element name="RelatesTo" type="tns:RelatesToType"/>
+  <xs:complexType mixed="false" name="RelatesToType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute default="http://www.w3.org/2005/08/addressing/reply" name="RelationshipType" type="tns:RelationshipTypeOpenEnum" use="optional"/>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RelationshipTypeOpenEnum">
+    <xs:union memberTypes="tns:RelationshipType xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="RelationshipType">
+    <xs:restriction base="xs:anyURI">
+      <xs:enumeration value="http://www.w3.org/2005/08/addressing/reply"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReplyTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="From" type="tns:EndpointReferenceType"/>
+  <xs:element name="FaultTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="To" type="tns:AttributedURIType"/>
+  <xs:element name="Action" type="tns:AttributedURIType"/>
+  <xs:complexType mixed="false" name="AttributedURIType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:attribute name="IsReferenceParameter" type="xs:boolean"/>
+  <xs:simpleType name="FaultCodesOpenEnumType">
+    <xs:union memberTypes="tns:FaultCodesType xs:QName"/>
+  </xs:simpleType>
+  <xs:simpleType name="FaultCodesType">
+    <xs:restriction base="xs:QName">
+      <xs:enumeration value="tns:InvalidAddressingHeader"/>
+      <xs:enumeration value="tns:InvalidAddress"/>
+      <xs:enumeration value="tns:InvalidEPR"/>
+      <xs:enumeration value="tns:InvalidCardinality"/>
+      <xs:enumeration value="tns:MissingAddressInEPR"/>
+      <xs:enumeration value="tns:DuplicateMessageID"/>
+      <xs:enumeration value="tns:ActionMismatch"/>
+      <xs:enumeration value="tns:MessageAddressingHeaderRequired"/>
+      <xs:enumeration value="tns:DestinationUnreachable"/>
+      <xs:enumeration value="tns:ActionNotSupported"/>
+      <xs:enumeration value="tns:EndpointUnavailable"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RetryAfter" type="tns:AttributedUnsignedLongType"/>
+  <xs:complexType mixed="false" name="AttributedUnsignedLongType">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeaderQName" type="tns:AttributedQNameType"/>
+  <xs:complexType mixed="false" name="AttributedQNameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeader" type="tns:AttributedAnyType"/>
+  <xs:complexType mixed="false" name="AttributedAnyType">
+    <xs:sequence>
+      <xs:any maxOccurs="1" minOccurs="1" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="ProblemIRI" type="tns:AttributedURIType"/>
+  <xs:element name="ProblemAction" type="tns:ProblemActionType"/>
+  <xs:complexType mixed="false" name="ProblemActionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:Action"/>
+      <xs:element minOccurs="0" name="SoapAction" type="xs:anyURI"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:endpoint>http://www.example.org/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/activateBusinessMonitoring" name="activateBusinessMonitoring" bindingOperationName="activateBusinessMonitoring" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:activateBusinessMonitoring>
+         <ns:ActivateBusinessMonitoring>
+            <ns:serviceName>?</ns:serviceName>
+            <ns:endpointName>?</ns:endpointName>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <ns:AllOperations Frequency="?"/>
+            <!--1 or more repetitions:-->
+            <ns:operation>?</ns:operation>
+            <ns:Frequency>?</ns:Frequency>
+         </ns:ActivateBusinessMonitoring>
+      </ns:activateBusinessMonitoring>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/activateBusinessMonitoring"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/connectToEsb" name="connectToEsb" bindingOperationName="connectToEsb" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:connectToEsb>
+         <ns:address>http://atlantis.isti.cnr.it:8180/services/adminExternalEndpoint</ns:address>
+      </ns:connectToEsb>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/connectToEsb"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getAllMonitoringEndpoints" name="getAllMonitoringEndpoints" bindingOperationName="getAllMonitoringEndpoints" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getAllMonitoringEndpoints/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getAllMonitoringEndpoints"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getConnectedEsbs" name="getConnectedEsbs" bindingOperationName="getConnectedEsbs" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getConnectedEsbs/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getConnectedEsbs"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getNodeInformations" name="getNodeInformations" bindingOperationName="getNodeInformations" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getNodeInformations/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/getNodeInformations"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromDocument" name="loadAgreementFromDocument" bindingOperationName="loadAgreementFromDocument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0" xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:loadAgreementRequest>
+         <ns:agreement ws:AgreementId="?">
+            <!--Optional:-->
+            <ws:Name>?</ws:Name>
+            <ws:Context>
+               <!--Optional:-->
+               <ws:AgreementInitiator>?</ws:AgreementInitiator>
+               <!--Optional:-->
+               <ws:AgreementResponder>?</ws:AgreementResponder>
+               <ws:ServiceProvider>?</ws:ServiceProvider>
+               <!--Optional:-->
+               <ws:ExpirationTime>?</ws:ExpirationTime>
+               <!--Optional:-->
+               <ws:TemplateId>?</ws:TemplateId>
+               <!--Optional:-->
+               <ws:TemplateName>?</ws:TemplateName>
+               <!--You may enter ANY elements at this point-->
+            </ws:Context>
+            <ws:Terms>
+               <!--Optional:-->
+               <ws:All>
+                  <!--You have a CHOICE of the next 7 items at this level-->
+                  <ws:ExactlyOne/>
+                  <ws:OneOrMore/>
+                  <ws:All/>
+                  <ws:ServiceDescriptionTerm ws:Name="?" ws:ServiceName="?">
+                     <!--You may enter ANY elements at this point-->
+                  </ws:ServiceDescriptionTerm>
+                  <ws:ServiceReference ws:Name="?" ws:ServiceName="?">
+                     <!--You may enter ANY elements at this point-->
+                  </ws:ServiceReference>
+                  <ws:ServiceProperties ws:Name="?" ws:ServiceName="?">
+                     <ws:VariableSet>
+                        <!--1 or more repetitions:-->
+                        <ws:Variable ws:Name="?" ws:Metric="?">
+                           <ws:Location>?</ws:Location>
+                        </ws:Variable>
+                     </ws:VariableSet>
+                  </ws:ServiceProperties>
+                  <ws:GuaranteeTerm ws:Name="?" ws:Obligated="?">
+                     <!--Zero or more repetitions:-->
+                     <ws:ServiceScope ws:ServiceName="?">
+                        <!--You may enter ANY elements at this point-->
+                     </ws:ServiceScope>
+                     <!--Optional:-->
+                     <ws:QualifyingCondition>?</ws:QualifyingCondition>
+                     <ws:ServiceLevelObjective>
+                        <!--You have a CHOICE of the next 2 items at this level-->
+                        <ws:KPITarget>
+                           <ws:KPIName>?</ws:KPIName>
+                           <ws:CustomServiceLevel>?</ws:CustomServiceLevel>
+                        </ws:KPITarget>
+                        <ws:CustomServiceLevel>?</ws:CustomServiceLevel>
+                     </ws:ServiceLevelObjective>
+                     <ws:BusinessValueList>
+                        <!--Optional:-->
+                        <ws:Importance>?</ws:Importance>
+                        <!--Zero or more repetitions:-->
+                        <ws:Penalty>
+                           <ws:AssessmentInterval>
+                              <!--You have a CHOICE of the next 2 items at this level-->
+                              <ws:TimeInterval>?</ws:TimeInterval>
+                              <ws:Count>?</ws:Count>
+                           </ws:AssessmentInterval>
+                           <!--Optional:-->
+                           <ws:ValueUnit>?</ws:ValueUnit>
+                           <ws:ValueExpression>?</ws:ValueExpression>
+                        </ws:Penalty>
+                        <!--Zero or more repetitions:-->
+                        <ws:Reward>
+                           <ws:AssessmentInterval>
+                              <!--You have a CHOICE of the next 2 items at this level-->
+                              <ws:TimeInterval>?</ws:TimeInterval>
+                              <ws:Count>?</ws:Count>
+                           </ws:AssessmentInterval>
+                           <!--Optional:-->
+                           <ws:ValueUnit>?</ws:ValueUnit>
+                           <ws:ValueExpression>?</ws:ValueExpression>
+                        </ws:Reward>
+                        <!--Optional:-->
+                        <ws:Preference>
+                           <ws:ServiceTermReference>?</ws:ServiceTermReference>
+                           <ws:Utility>?</ws:Utility>
+                        </ws:Preference>
+                        <!--Zero or more repetitions:-->
+                        <ws:CustomBusinessValue>?</ws:CustomBusinessValue>
+                     </ws:BusinessValueList>
+                  </ws:GuaranteeTerm>
+               </ws:All>
+            </ws:Terms>
+         </ns:agreement>
+      </ns:loadAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromDocument"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromUrl" name="loadAgreementFromUrl" bindingOperationName="loadAgreementFromUrl" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:loadAgreementFromUrlRequest>
+         <ns:url>http://jul64.free.fr/CHOREOS/agreement/agreement4.xml</ns:url>
+      </ns:loadAgreementFromUrlRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/loadAgreementFromUrl"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/monitorEndpoints" name="monitorEndpoints" bindingOperationName="monitorEndpoints" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:monitorEndpoints>
+         <ns:notificationAddress>?</ns:notificationAddress>
+         <!--Zero or more repetitions:-->
+         <ns:endpoint>
+            <ns:name>?</ns:name>
+            <ns:address>?</ns:address>
+            <ns:operations>
+               <!--Zero or more repetitions:-->
+               <ns:operationName>?</ns:operationName>
+            </ns:operations>
+         </ns:endpoint>
+      </ns:monitorEndpoints>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/monitorEndpoints"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unActivateBusinessMonitoring" name="unActivateBusinessMonitoring" bindingOperationName="unActivateBusinessMonitoring" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:unActivateBusinessMonitoring>
+         <ns:UnActivateBusinessMonitoring>
+            <ns:serviceName>?</ns:serviceName>
+            <ns:endpointName>?</ns:endpointName>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <ns:AllOperations>?</ns:AllOperations>
+            <!--1 or more repetitions:-->
+            <ns:operation>?</ns:operation>
+         </ns:UnActivateBusinessMonitoring>
+      </ns:unActivateBusinessMonitoring>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unActivateBusinessMonitoring"/></con:call></con:operation><con:operation isOneWay="false" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unconnectToEsb" name="unconnectToEsb" bindingOperationName="unconnectToEsb" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://avalon.isti.cnr.it:8184/services/bsmadminExternalEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://com.petalslink.easierbsm/data/bsmadmin/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:unconnectToEsb>
+         <ns:address>?</ns:address>
+      </ns:unconnectToEsb>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com.petalslink.easierbsm/service/bsmadmin/1.0/unconnectToEsb"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

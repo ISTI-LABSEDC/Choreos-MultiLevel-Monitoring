@@ -1,0 +1,20 @@
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: Connection Parameters
+------------------------------------------------------------------------------------------------------
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: java.naming.factory.initial org.apache.activemq.jndi.ActiveMQInitialContextFactory
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: java.naming.provider.url tcp://atlantis.isti.cnr.it:61616
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: java.naming.security.principal system
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: java.naming.security.credentials manager
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: connectionFactoryNames TopicCF
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: topic.serviceTopic jms.serviceTopic
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: topic.probeTopic jms.probeTopic
+------------------------------------------------------------------------------------------------------
+Thu Jun 13 17:35:29 CEST 2013 - MainMonitoring: Setting up TopicConnectionFactory		[ OK ]
+------------------------------------------------------------------------------------------------------
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Creating connection object log4j:WARN No appenders could be found for logger (org.apache.activemq.transport.WireFormatNegotiator).
+log4j:WARN Please initialize the log4j system properly.
+		[ OK ]
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Creating public session object 	[ OK ]
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Creating subscribe object 		[ OK ]
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Setting up reading topic 		[ OK ]
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Setting up destination topic 	[ OK ]
+Thu Jun 13 17:35:29 CEST 2013 - ComplexEventProcessorImpl: Reading knowledge base 
